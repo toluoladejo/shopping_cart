@@ -1,4 +1,4 @@
-# Official base image 
+# Official base image
 FROM node:14-alpine
 
 # Set Working directory
@@ -9,9 +9,12 @@ COPY package*.json ./app
 
 # Instruction to run command
 RUN npm install
+RUN npm install -g nodemon
+RUN npm install express
+RUN npm install cors
 
 # Copy source code
-COPY src ./app
+COPY . .
 
 # Expose the port application runs on
 EXPOSE 3000
